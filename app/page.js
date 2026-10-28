@@ -13,9 +13,9 @@ export default function HomePage() {
       <section className="hero">
         <div className="shell hero-grid">
           <div className="hero-copy">
-            <p className="overline">Thérapie familiale systémique</p>
+            <div className="hero-kicker"><span>01</span><p className="overline">Thérapie familiale systémique</p></div>
             <h1>
-              Retrouver un espace pour <em>avancer ensemble.</em>
+              Retrouver un espace pour <em>avancer ensemble</em><sup>✳</sup>
             </h1>
             <p className="lead">
               Je vous accueille à La Ciotat et à Marseille pour un accompagnement individuel, de couple ou familial,
@@ -26,24 +26,32 @@ export default function HomePage() {
                 Prendre rendez-vous <span aria-hidden="true">↗</span>
               </Link>
               <Link className="under-link" href="/therapies">
-                Découvrir les accompagnements <span aria-hidden="true">→</span>
+                Les accompagnements <span aria-hidden="true">→</span>
               </Link>
             </div>
-            <div className="hero-credentials">
-              <span>Membre de la S.F.T.F</span>
-              <span>Membre de l’E.F.T.A</span>
+            <div className="hero-footnote">
+              <span>Une pratique relationnelle</span>
+              <span>Scroller pour explorer <b aria-hidden="true">↓</b></span>
             </div>
           </div>
           <div className="hero-visual">
-            <span className="visual-note">Une approche relationnelle</span>
-            <img src="/images/portrait.png" alt="Nadia El Ferkane-Blanc" width="578" height="598" />
+            <div className="visual-frame">
+              <span className="visual-corner visual-corner-one" aria-hidden="true" />
+              <span className="visual-corner visual-corner-two" aria-hidden="true" />
+              <img src="/images/portrait.png" alt="Nadia El Ferkane-Blanc" width="578" height="598" />
+            </div>
+            <span className="visual-note">Portrait · 2024</span>
             <span className="hero-name">Nadia El Ferkane-Blanc</span>
+            <span className="visual-number" aria-hidden="true">01</span>
           </div>
         </div>
       </section>
       <section className="section paper">
         <div className="shell two-col">
-          <p className="overline">Une approche relationnelle</p>
+          <div className="section-side">
+            <span className="section-index">02</span>
+            <p className="overline">Une approche relationnelle</p>
+          </div>
           <div>
             <h2 className="section-title">Ce que nous vivons prend forme dans nos relations.</h2>
             <p className="section-copy">
@@ -61,7 +69,7 @@ export default function HomePage() {
         <div className="shell">
           <div className="section-heading">
             <div>
-              <p className="overline">Les accompagnements</p>
+              <div className="heading-kicker"><span>03</span><p className="overline">Les accompagnements</p></div>
               <h2 className="section-title">Un travail ajusté à votre demande.</h2>
             </div>
             <Link className="under-link" href="/therapies">
@@ -72,6 +80,7 @@ export default function HomePage() {
             {services.map(([number, title, text]) => (
               <article className="card" key={number}>
                 <span className="card-number">{number}</span>
+                <span className="card-tag">Accompagnement</span>
                 <h3>{title}</h3>
                 <p>{text}</p>
                 <Link className="card-arrow" href="/therapies" aria-label={`En savoir plus : ${title}`}>

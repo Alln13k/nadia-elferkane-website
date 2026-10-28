@@ -11,27 +11,30 @@ const links = [
 export function SiteHeader() {
   return (
     <header className="site-header">
+      <div className="header-ribbon">
+        <div className="shell ribbon-inner">
+          <span>Thérapie familiale systémique</span>
+          <span>La Ciotat · Marseille</span>
+          <a href="tel:+33625700824">06 25 70 08 24 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
       <div className="shell header-inner">
         <Link className="brand" href="/" aria-label="Nadia El Ferkane-Blanc, accueil">
-          <img src="/images/embleme.png" alt="" width="278" height="200" />
-          <span>
-            <strong>Nadia El Ferkane-Blanc</strong>
-            <small>Thérapeute familiale systémique</small>
+          <span className="brand-symbol"><img src="/images/embleme.png" alt="" width="278" height="200" /></span>
+          <span className="brand-copy">
+            <strong>Nadia <i>El Ferkane-Blanc</i></strong>
+            <small>Thérapeute · accompagnement relationnel</small>
           </span>
         </Link>
         <nav className="desktop-nav" aria-label="Navigation principale">
-          {links.map(([href, label]) => (
+          {links.map(([href, label], index) => (
             <Link key={href} href={href}>
-              {label}
+              <span>0{index + 1}</span>{label}
             </Link>
           ))}
         </nav>
-        <a className="header-phone" href="tel:+33625700824" aria-label="Appeler le 06 25 70 08 24">
-          <span className="phone-dot" aria-hidden="true" />
-          06 25 70 08 24
-        </a>
         <details className="mobile-menu">
-          <summary aria-label="Ouvrir le menu">Menu <span aria-hidden="true">+</span></summary>
+          <summary aria-label="Ouvrir le menu"><span className="menu-label">Menu</span><span aria-hidden="true">+</span></summary>
           <nav aria-label="Navigation mobile">
             {links.map(([href, label]) => (
               <Link key={href} href={href}>
@@ -49,29 +52,33 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="site-footer">
+      <div className="shell footer-topline">
+        <span className="footer-index">N · E · F</span>
+        <p>Prendre soin du lien, un échange à la fois.</p>
+        <span>Depuis La Ciotat & Marseille</span>
+      </div>
       <div className="shell footer-grid">
-        <div>
+        <div className="footer-introduction">
           <Link className="footer-brand" href="/">
-            <img src="/images/embleme.png" alt="" width="278" height="200" />
-            <span>
-              <strong>Nadia El Ferkane-Blanc</strong>
+            <span className="brand-symbol"><img src="/images/embleme.png" alt="" width="278" height="200" /></span>
+            <span className="brand-copy">
+              <strong>Nadia <i>El Ferkane-Blanc</i></strong>
               <small>Thérapeute familiale systémique</small>
             </span>
           </Link>
           <p className="footer-intro">Un espace pour déposer, comprendre et avancer ensemble.</p>
         </div>
         <div className="footer-column">
-          <p className="footer-label">Explorer</p>
+          <p className="footer-label">Navigation</p>
           {links.slice(1).map(([href, label]) => (
-            <Link key={href} href={href}>
-              {label}
-            </Link>
+            <Link key={href} href={href}>{label}</Link>
           ))}
         </div>
-        <div className="footer-column">
-          <p className="footer-label">Me joindre</p>
-          <a href="tel:+33625700824">06 25 70 08 24</a>
+        <div className="footer-column footer-contact">
+          <p className="footer-label">Écrire · appeler</p>
           <a href="mailto:elferkane.nadia@hotmail.fr">elferkane.nadia@hotmail.fr</a>
+          <a href="tel:+33625700824">06 25 70 08 24</a>
+          <span>Consultations sur rendez-vous</span>
         </div>
       </div>
       <div className="shell footer-bottom">
@@ -86,10 +93,14 @@ export function PageHeader({ label, title, intro }) {
   return (
     <section className="page-header">
       <div className="shell page-header-inner">
-        <p className="overline">{label}</p>
+        <div className="page-header-kicker">
+          <span className="page-number">N / E / F</span>
+          <p className="overline">{label}</p>
+        </div>
         <h1>{title}</h1>
         {intro ? <p className="page-intro">{intro}</p> : null}
-        <span className="header-mark" aria-hidden="true" />
+        <span className="header-orbit header-orbit-one" aria-hidden="true" />
+        <span className="header-orbit header-orbit-two" aria-hidden="true" />
       </div>
     </section>
   );
@@ -99,21 +110,17 @@ export function Invite() {
   return (
     <section className="invite">
       <div className="shell invite-inner">
-        <div>
+        <div className="invite-stamp" aria-hidden="true">N<br /><span>·</span><br />E<br /><span>·</span><br />F</div>
+        <div className="invite-copy">
           <p className="overline">Un premier échange</p>
           <h2>Parlons de ce qui vous amène.</h2>
-          <p>
-            Écrivez-moi en indiquant votre demande et vos coordonnées. Je vous recontacterai pour un entretien
-            téléphonique préalable.
-          </p>
+          <p>Écrivez-moi en indiquant votre demande et vos coordonnées. Je vous recontacterai pour un entretien téléphonique préalable.</p>
         </div>
         <div className="invite-actions">
           <a className="button button-light" href="mailto:elferkane.nadia@hotmail.fr">
-            Envoyer un email <span aria-hidden="true">↗</span>
+            Écrire un email <span aria-hidden="true">↗</span>
           </a>
-          <a className="under-link under-link-light" href="tel:+33625700824">
-            06 25 70 08 24
-          </a>
+          <a className="invite-phone" href="tel:+33625700824">06 25 70 08 24 <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
